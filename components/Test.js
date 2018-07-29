@@ -8,6 +8,7 @@ export default class Test extends React.Component {
     return { userAgent }
   }
 
+<<<<<<< HEAD
   render() {
     return (
       <div>
@@ -16,3 +17,28 @@ export default class Test extends React.Component {
     )
   }
 }
+=======
+    async getData() {
+        const res = await fetch('https://api.github.com/repos/zeit/next.js')
+        const json = await res.json()
+        this.setState({
+            blah: json.stargazers_count
+        })
+    }
+
+    constructor(props) {
+        super(props)
+
+        this.getData()
+        this.state = {}
+    }
+
+    render() {
+        return (
+            <div>
+              <p> testerino  {this.state.blah} </p>
+            </div>
+        )
+    }
+}
+>>>>>>> dc32163d52aaea9596cf880c5779b7db5f50c4f6
