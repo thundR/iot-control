@@ -8,16 +8,7 @@ export default class Test extends React.Component {
     return { userAgent }
   }
 
-<<<<<<< HEAD
-  render() {
-    return (
-      <div>
-        Hello World {this.props.userAgent}
-      </div>
-    )
-  }
-}
-=======
+  
     async getData() {
         const res = await fetch('https://api.github.com/repos/zeit/next.js')
         const json = await res.json()
@@ -41,4 +32,3 @@ export default class Test extends React.Component {
         )
     }
 }
->>>>>>> dc32163d52aaea9596cf880c5779b7db5f50c4f6
