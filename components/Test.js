@@ -1,18 +1,28 @@
 import React from "react"
+import 'isomorphic-unfetch'
 
 export default class Test extends React.Component {
 
-  static async getInitialProps () {
-    // eslint-disable-next-line no-undef
-    const res = await fetch('https://api.github.com/repos/developit/preact')
-    const json = await res.json()
-    return { stars: json }
-}
-render() {
-    return (
-      <div>
-        <p> testerino  {this.props.stars} </p>
-      </div>
-    )
-  }
+    async getData() {
+        const res = await fetch('https://api.github.com/repos/zeit/next.js')
+        const json = await res.json()
+        this.setState({
+            blah: json.stargazers_count
+        })
+    }
+
+    constructor(props) {
+        super(props)
+
+        this.getData()
+        this.state = {}
+    }
+
+    render() {
+        return (
+            <div>
+              <p> testerino  {this.state.blah} </p>
+            </div>
+        )
+    }
 }
