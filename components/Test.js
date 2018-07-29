@@ -3,14 +3,8 @@ import 'isomorphic-unfetch'
 import Link from 'next/link'
 
 export default class Test extends React.Component {
-  static async getInitialProps({ req }) {
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-    return { userAgent }
-  }
 
-
-
-    async getData() {
+    async loadInitialData() {
         const res = await fetch('https://api.github.com/repos/zeit/next.js')
         const json = await res.json()
         this.setState({
@@ -21,7 +15,7 @@ export default class Test extends React.Component {
     constructor(props) {
         super(props)
 
-        this.getData()
+        this.loadInitialData()
         this.state = {}
     }
 
@@ -33,4 +27,3 @@ export default class Test extends React.Component {
         )
     }
 }
-
