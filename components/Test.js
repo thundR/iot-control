@@ -1,17 +1,17 @@
 import React from "react"
+import 'isomorphic-unfetch'
+import Link from 'next/link'
 
 export default class Test extends React.Component {
+  static async getInitialProps({ req }) {
+    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+    return { userAgent }
+  }
 
-  static async getInitialProps () {
-    // eslint-disable-next-line no-undef
-    const res = await fetch('https://api.github.com/repos/developit/preact')
-    const json = await res.json()
-    return { stars: json }
-}
-render() {
+  render() {
     return (
       <div>
-        <p> testerino  {this.props.stars} </p>
+        Hello World {this.props.userAgent}
       </div>
     )
   }

@@ -4,7 +4,9 @@
   "description": "iot server-client system ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -17,13 +19,10 @@
   },
   "homepage": "https://github.com/thundR/iot-control#readme",
   "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "isomorphic-unfetch": "^2.1.0",
     "next": "^6.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
-  },
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
   }
 }
